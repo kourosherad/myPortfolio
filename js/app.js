@@ -1,40 +1,33 @@
 $(document).ready(function(){
 
-  function animateBanner() {
-    $(".dancingLink").addClass("animate__animated animate__heartBeat");
-
-    // Remove the class after the animation duration (1s for wobble)
-        setTimeout(function() {
-    $(".dancingLink").removeClass("animate__animated animate__heartBeat");
-        // Call animateLink again to create a loop
-        setTimeout(animateBanner, 2000); // Small delay before restarting the animation
-    }, 700); // Duration of the wobble animation
-    }
-
-      animateBanner(); // Start the animation loop
-
-
 
     // When you click on logo or home button it will take you to the 
     /// top of the page 
   $('.home-link').click(function(e) {
     e.preventDefault();
-    $('html, body').animate({ scrollTop: 0 }, 'slow');
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
 });
 
 
 // Navigation Bar 
 
+$(window).on('scroll', function() {
+  var scroll = $(window).scrollTop();
+  if (scroll >= 50) {
+    $(".home-link").removeClass("navbar-brand")
+      $(".sticky").addClass("stickyadd");
+      // Add the black-border class to the menu links
+      $(".menu1 li a").addClass("black-border");
+  } else {
+      $(".sticky").removeClass("stickyadd");
+      // Remove the black-border class from the menu links
+      $(".menu1 li a").removeClass("black-border");
+      $(".home-link").addClass("navbar-brand")
+  }
+});
 
-    $(window).on('scroll',function(){
-      var scroll = $(window).scrollTop();
-      if (scroll>=50) {
-        $(".sticky").addClass("stickyadd");
-      }
-    else{
-        $(".sticky").removeClass("stickyadd");
-    }
-  })
+
+
 
   // Hamburger menu in navigatin bar
   // This function make the links inside the navbar to be shown vertically 
@@ -52,10 +45,10 @@ $(document).ready(function(){
   //Introduction of Page 
   //Used type.js 
   var typed = new Typed(".element",{
-    strings: ["Kourosh  Moradi","a Developer","a Designer"],
+    strings: ["Kourosh Moradi","a Software Engineer","a Designer"],
     smartBackspace:true,
-    typeSpeed: 100,
-    backSpeed: 100,
+    typeSpeed: 95,
+    backSpeed: 60,
     loop:true,
     loopCount:Infinity,
     startDelay:500
@@ -69,17 +62,16 @@ $(document).ready(function(){
     element: document.getElementById('exp-id'),
     handler: function() {
       var p = document.querySelectorAll('.progress-bar');
-        p[0].setAttribute ("style","width:99%;transition: 1s all");
-        p[1].setAttribute ("style","width:99%;transition: 1.5s all");
-        p[2].setAttribute ("style","width:70%;transition: l.7s all");
-        p[3].setAttribute ("style","width:90%;transition: 2s all");
-        p[4].setAttribute ("style","width:40%;transition: 2.3s all");
-        p[5].setAttribute ("style","width:60%;transition: 2.5s all");
+        p[0].setAttribute ("style","width:92.34%;transition: 1.3s all");
+        p[1].setAttribute ("style","width:51.01%;transition: 1.5s all");
+        p[2].setAttribute ("style","width:60%;transition: 2s all");
+        p[3].setAttribute ("style","width:32%;transition: 2.3s all");
+        p[4].setAttribute ("style","width:12%;transition: 2.5s all");
     }, offset:'90%'
   });
 
 
-
+/*
   // Owl Carousel
   // Here we used a js library called owl carousel for our
   // testimony section to make a loop of comments to be desplayed 
@@ -89,7 +81,7 @@ $(document).ready(function(){
     autoplayTimeout:4000,
     items:1
   });
-
+*/
 // Here we defined an function using jquery to collpase the menu 
 // wherever we click our finger or whats so ever on screen
 
