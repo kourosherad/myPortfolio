@@ -61,12 +61,7 @@ p{
 
 }
 
-.animate__animated.animate__backInUp {
-    --animate-duration:1.2s;
-}
-.animate__animated.animate__bounceInDown {
-    --animate-duration:1.2s;
-}
+
 
 
 /*      NAVIGATION        */
@@ -100,10 +95,6 @@ p{
     /* This filter should now more closely match #FFD100 */
 }
 
-
-
-
-/* Your existing CSS */
 .menu1 li a {
     position: relative; /* Allows absolute positioning of pseudo-elements */
     display: inline-block; /* Ensures the pseudo-elements are correctly positioned within each link */
@@ -133,7 +124,7 @@ p{
     border-right: 2px solid transparent;
 }
 
-/* Default hover effect */
+
 .menu1 li a:hover::before,
 .menu1 li a:hover::after {
     width: 15px;
@@ -153,23 +144,50 @@ p{
 /*   Header Section*/
 
 header {
-    height:100vh;
+    height: 100vh;
     width: 100%;
-    padding:0;
-    margin:auto;
-    background-size:cover;
-    background-image: linear-gradient( rgba(0, 0, 0, 0.619), rgb(0, 0, 0) ), url('../images/me.jpg');
+    padding: 0;
+    margin: auto;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.619), rgb(0, 0, 0)), url('../images/me.jpg');
     background-repeat: no-repeat;
     background-position: center;
+    position: relative; /* To position the pseudo-element */
+    overflow: hidden; /* Ensures pseudo-element stays within bounds */
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 1; /* Start fully black */
+    animation: fadeOut 3s ease-in-out forwards; /* Fade out to reveal background */
+}
+
+/* Keyframe animation for fade-out */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .header-content {
     height: 100vh;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative; /* Ensures it sits above the pseudo-element */
+    z-index: 1;
 }
+
 
 .content-box {
     max-width: 700px;
@@ -347,4 +365,9 @@ footer .r-icon a:hover {
     color: #ffd100;
     transition: .9s all ;
     box-shadow: 0px 4px 20px #FFD100;
+}
+
+.app,.effect,.effect2,.effect3,.effect4 {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-in transition */
 }

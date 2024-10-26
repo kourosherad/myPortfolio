@@ -94,26 +94,113 @@ $(window).on('scroll', function() {
 });
 
 
+$(window).on('scroll', function() {
+  var scrollPosition = $(window).scrollTop();
+  
+  // Animate elements when scroll position reaches the threshold
+  if (scrollPosition >= 100) {
+    if (!$(".img-thumbnail").hasClass("animate__fadeInLeft")) {
+      $(".img-thumbnail").addClass("animate__animated animate__fadeInLeft").css("opacity", "1");
+    }
+    if (!$(".aboutme").hasClass("animate__fadeInRight")) {
+      $(".aboutme").addClass("animate__animated animate__fadeInRight").css("opacity", "1");
+    }
+  } else {
+    // Remove animations when scrolled above threshold, only if desired
+    $(".img-thumbnail").removeClass("animate__animated animate__fadeInLeft").css("opacity", "0");
+    $(".aboutme").removeClass("animate__animated animate__fadeInRight").css("opacity", "0");
+  }
+});
+
 
 $(window).on('scroll', function() {
-  var scroll2 = $(window).scrollTop();
-  if (scroll2 >= 100) {
-    $(".img-thumbnail").addClass("animate__animated animate__fadeInLeft");
-    $(".aboutme").addClass("animate__animated animate__fadeInRight");
-  } else {
-    $(".img-thumbnail").removeClass("animate__animated animate__fadeInLeft");
-    $(".aboutme").removeClass("animate__animated animate__fadeInRight");
-  }
+  var scrollPosition = $(window).scrollTop();
+  var windowHeight = $(window).height();
+
+  $(".app").each(function() {
+    var elementTop = $(this).offset().top;
+    
+    // Trigger animation when element is within view
+    if (scrollPosition + windowHeight > elementTop + 70) {
+      $(this).addClass("animate__animated animate__fadeInUp");
+      $(this).css("opacity", "1"); // Set opacity to 1 when in view
+    } else {
+      $(this).removeClass("animate__animated animate__fadeInUp");
+      $(this).css("opacity", "0");
+    }
+  });
 });
 
-$(window).on('scroll',function() {
-  var scroll3 = $(window).scrollTop();
-  if (350 > scroll3 > 300) {
-    $(".app").addClass("animate__animated animate__fadeInTopLeft");
-  }
-  else {
-    $(".app").removeClass("animate__animated animate__fadeInTopLeft");
-  }
+$(window).on('scroll', function() {
+  var scrollPosition = $(window).scrollTop();
+  var windowHeight = $(window).height();
+
+  $(".effect").each(function() {
+    var elementTop = $(this).offset().top;
+    
+    // Trigger animation when element is within view
+    if (scrollPosition + windowHeight > elementTop + 100) {
+      $(this).addClass("animate__animated animate__zoomIn");
+      $(this).css("opacity", "1"); // Set opacity to 1 when in view
+    } else {
+      $(this).removeClass("animate__animated animate__zoomIn");
+      $(this).css("opacity", "0");
+    }
+  });
 });
+
+$(window).on('scroll', function() {
+  var scrollPosition = $(window).scrollTop();
+  var windowHeight = $(window).height();
+
+  $(".effect2").each(function() {
+    var elementTop = $(this).offset().top;
+    
+    // Trigger animation when element is within view
+    if (scrollPosition + windowHeight > elementTop + 100) {
+      $(this).addClass("animate__animated animate__fadeInRight");
+      $(this).css("opacity", "1"); // Set opacity to 1 when in view
+    } else {
+      $(this).removeClass("animate__animated animate__fadeInRight");
+      $(this).css("opacity", "0");
+    }
+  });
+});
+
+$(window).on('scroll', function() {
+  var scrollPosition = $(window).scrollTop();
+  var windowHeight = $(window).height();
+
+  $(".effect3").each(function() {
+    var elementTop = $(this).offset().top;
+    
+    // Trigger animation when element is within view
+    if (scrollPosition + windowHeight > elementTop + 100) {
+      $(this).addClass("animate__animated animate__fadeInLeft");
+      $(this).css("opacity", "1"); // Set opacity to 1 when in view
+    } else {
+      $(this).removeClass("animate__animated animate__fadeInLeft");
+      $(this).css("opacity", "0");
+    }
+  });
+});
+$(window).on('scroll', function() {
+  var scrollPosition = $(window).scrollTop();
+  var windowHeight = $(window).height();
+
+  $(".effect4").each(function() {
+    var elementTop = $(this).offset().top;
+    
+    // Trigger animation when element is within view
+    if (scrollPosition + windowHeight > elementTop + 100) {
+      $(this).addClass("animate__animated animate__zoomIn");
+      $(this).css("opacity", "1"); // Set opacity to 1 when in view
+    } else {
+      $(this).removeClass("animate__animated animate__zoomIn");
+      $(this).css("opacity", "0");
+    }
+  });
+});
+
 
 });
